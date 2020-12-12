@@ -1,5 +1,6 @@
 <template>
   <div id="header">
+    
     <!-- Laptop+ Layout !-->
     <!-- <section class="header__logo-container">
       <router-link class="header__logo" to="/" exact>
@@ -25,8 +26,6 @@
       </ul>
     </nav> -->
 
-    <!-- Mobile Layout !-->
-
     <!--Menu Toggle !-->
     <section class="header__menu-section">
       <font-awesome-icon icon="bars" @click="toggleMenu"/>
@@ -35,17 +34,16 @@
 
     <!-- Menu -->
     <section class="header__menu" :class="[{active: this.menuActivated}]" v-show="menuActivated">
+      <!-- Menu Header !-->
       <div class="header__menu-header">
         <font-awesome-icon icon="times" @click="toggleMenu"/>
-
         <section class="header__logo-container header__logo-container--menu">
           <router-link class="header__logo header__logo--menu" to="/" exact>
             S1 History Final
           </router-link>
         </section>
       </div>
-
-
+      <!-- Menu Content !-->
       <nav class="header__content header__content--menu">
         <ul class="header__ul header__ul--menu">
           <li class="header__link-c header__link-c--menu">
@@ -65,13 +63,14 @@
       </nav>
     </section>
 
-    <!-- Logo Container !-->
+    <!-- Header Logo Container !-->
     <section class="header__logo-container">
       <router-link class="header__logo" to="/" exact>
         S1 History Final
       </router-link>
     </section>
 
+    <!-- Header Content !-->
     <nav class="header__content header__content--header">
       <ul class="header__ul header__ul--header">
         <li class="header__link-c header__link-c--header">
@@ -90,7 +89,6 @@
         </li>
       </ul>
     </nav>
-
   </div>
 </template>
 
@@ -147,9 +145,34 @@ $vueGreen: #42b983;
   height: $height;
 }
 
+
+
+/*Responsive Design*/
+
+// Screen size names
+$smallScr: 550px;
+$mediumScr: 800px;
+$mediumTwoScr: 1000px;
+$largeScr: 1600px;
+
+@mixin responsive($type) {
+  @if $type == 'smallScr' {
+    @media only screen and (min-width: $smallScr) {
+      @content;
+    }
+  } @else if $type == 'mediumScr' {
+    @media only screen and (min-width: $mediumScr) {
+      @content;
+    }
+  }
+}
+
+
+
+
 .header__link-c {
-  @include changeFont('Nunito');
   letter-spacing: 1px;
+  @include changeFont('Nunito');
 }
 
 #header {
@@ -161,13 +184,29 @@ $vueGreen: #42b983;
   position: fixed;
   z-index: 2;
   @include flex(space-between, center, nowrap, row);
+
+  // Responsive 800px
+  @include responsive('mediumScr') {
+    height: 62px;
+  }
 }
 
+// Menu Toggle
 .header__menu-section {
   margin-left: 1rem;
 
+  // Responsive 800px
+  @include responsive('mediumScr') {
+    display: none;
+  }
+
   svg {
     font-size: 1.2rem;
+
+    // Responsive 550px
+    @include responsive('smallScr') {
+      font-size: 1.3rem;
+    }
   }
 
   &:hover {
@@ -175,6 +214,7 @@ $vueGreen: #42b983;
   }
 }
 
+// Menu
 .header__menu {
   position: absolute;
   top:0;
@@ -185,36 +225,21 @@ $vueGreen: #42b983;
   min-width: 300px;
   @include size(100%, 100vh);
 
+  // Responsive 800px
+  @include responsive('mediumScr') {
+    display: none;
+  }
+
   a {
     color: white;
     text-decoration: none;
   }
 }
 
+// Menu Header
 .header__menu-header {
   border-bottom: 1px solid $menuBorder;
 
-  @include flex(space-between, center, wrap, row)
-}
-
-.header__content--menu {
-  padding: 1rem 3rem;
-}
-
-.header__ul--menu {
-  list-style: none;
-  text-align: left;
-}
-
-.header__link-c--menu {
-  color: $menuBorder;
-  border-bottom: 1px solid $menuBorder;
-  padding: 1rem 0;
-}
-
-
-
-.header__menu-header {
   svg {
     color: white;
     font-size: 1.5rem;
@@ -224,21 +249,71 @@ $vueGreen: #42b983;
       cursor: pointer;
     }
   }
+
+  @include flex(space-between, center, wrap, row)
 }
 
+// Menu Content
+.header__content--menu {
+  padding: 1rem 3rem;
+}
+
+// Menu Ul
+.header__ul--menu {
+  list-style: none;
+  text-align: left;
+}
+
+// Menu li element
+.header__link-c--menu {
+  color: $menuBorder;
+  border-bottom: 1px solid $menuBorder;
+  padding: 1rem 0;
+
+  // Responsive 550px
+  @include responsive($smallScr) {
+    font-size: 1.2rem;
+    padding: 1.2rem 0;
+  }
+}
+
+// Menu Logo Container
 .header__logo-container {
   text-transform: uppercase;
   padding: 0.2rem 1rem;
   @include changeFont('Montserrat');
 
+  // Responsive 550px
+  @include responsive('smallScr') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Responsive 800px
+  @include responsive('mediumScr') {
+    margin-left: 0.3rem;
+  }
+
+
+  // Responsive 1200px;
+  @include responsive('largeScr') {
+    font-size: 1.5rem;
+  }
+
   a {
     text-decoration: none;
     font-size: 1rem;
     color: #fff;
+
+    // Responsive 550px
+    @include responsive('smallScr') {
+      font-size: 1.3rem;
+    }
   }
 }
 
-
+// Header Navigation Links
 .header__content--header {
   width: 100%;
   min-width: 300px;
@@ -246,14 +321,40 @@ $vueGreen: #42b983;
   margin: auto;
 
   display: none;
+
+  // Responsive 550px
+  @include responsive('smallScr') {
+    margin: 0 1rem 0 0;
+  }
+
+  // Responsive 800px
+  @include responsive('mediumScr') {
+    display: block;
+  }
 }
 
+// Header Ul
 .header__ul--header {
   list-style: none;
   // text-align: center;
 
+  // Responsive 550px
+  @include responsive ('smallScr') {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    max-width: initial;
+    width: 100%;
+  }
+
   li {
     padding: 1rem;
+
+    // Responsive 550px
+    @include responsive('smallScr') {
+      padding: 1.7rem 0.6rem;
+    }
+
     a {
       // color: $darkBlue;
       // padding: 0.4em 0.1rem;
@@ -261,57 +362,9 @@ $vueGreen: #42b983;
       transition-duration: 0.5s;
       color: #fff;
 
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
-  }
-}
 
-
-
-
-
-// Screen-sizes 550px and above
-@media screen and (min-width: 550px) {
-
-  .header__menu-section {
-    svg {
-      font-size: 1.3rem;
-    }
-  }
-
-  .header__link-c--menu {
-    font-size: 1.2rem;
-    padding: 1.2rem 0;
-  }
-
-  .header__logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      font-size: 1.3rem;
-    }
-  }
-
-  .header__content--header {
-    margin: 0 1rem 0 0;
-    
-  }
-
-  .header__ul--header {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    max-width: initial;
-    width: 100%;
-
-    li {
-      padding: 1.7rem 0.6rem;
-
-      a {
+      // Responsive 550px
+      @include responsive('smallScr') {
         padding: 0.3em 0.2rem;
         text-decoration: none;
         transition-duration: 0.2s;
@@ -325,42 +378,12 @@ $vueGreen: #42b983;
           border-bottom: 2px solid $vueGreen;
         }
       }
+
+      // Responsive 1000px
+      @include responsive('mediumTwoScr') {
+        font-size: 1.1rem;
+      }
     }
-  }
-}
-
-@media screen and (min-width: 800px) {
-  #header {
-    height: 62px;
-  }
-
-  .header__logo-container {
-    margin-left: 0.3rem;
-  }
-
-  .header__menu-section, .header__menu {
-    display: none;
-  }
-
-  .header__content--header {
-    display: block;
-  }
-  
-}
-
-// Screen-sizes 1000px and above
-@media screen and (min-width: 1000px) {
-
-  .header__link-c--header {
-    a {
-      font-size: 1.1rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .header__logo-container {
-    font-size: 1.5rem;
   }
 }
 </style>
