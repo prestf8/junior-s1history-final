@@ -125,47 +125,27 @@ $menuBorder: rgba(255,255,255,0.3);
 // Default colors
 $vueGreen: #42b983;
 
-@mixin changeFont($font) {
-  font-family: $font, sans-serif;
-}
+// @import '../partials/'
 
-@mixin flex($justify, $align, $wrap, $dir, $r: false) {
-  @if $r {
-    display: flex;
-  } @else {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    flex-flow: $wrap $dir;
-  }
-}
+// @mixin changeFont($font) {
+//   font-family: $font, sans-serif;
+// }
 
-@mixin size($width, $height, $maxWidth: none, $maxHeight: none) {
-  width: $width;
-  height: $height;
-}
+// @mixin flex($justify, $align, $wrap, $dir, $r: false) {
+//   @if $r {
+//     display: flex;
+//   } @else {
+//     display: flex;
+//     justify-content: $justify;
+//     align-items: $align;
+//     flex-flow: $wrap $dir;
+//   }
+// }
 
-
-
-/*Responsive Design*/
-
-// Screen size names
-$smallScr: 550px;
-$mediumScr: 800px;
-$mediumTwoScr: 1000px;
-$largeScr: 1600px;
-
-@mixin responsive($type) {
-  @if $type == 'smallScr' {
-    @media only screen and (min-width: $smallScr) {
-      @content;
-    }
-  } @else if $type == 'mediumScr' {
-    @media only screen and (min-width: $mediumScr) {
-      @content;
-    }
-  }
-}
+// @mixin size($width, $height, $maxWidth: none, $maxHeight: none) {
+//   width: $width;
+//   height: $height;
+// }
 
 
 
@@ -176,14 +156,14 @@ $largeScr: 1600px;
 }
 
 #header {
+  background-color: transparent;
   background-color: $headerBGColor;
   width: 100%;
   height: 50px;
   color: white;
-
   position: fixed;
   z-index: 2;
-  @include flex(space-between, center, nowrap, row);
+  @include displayFlex(space-between, center, nowrap, row);
 
   // Responsive 800px
   @include responsive('mediumScr') {
@@ -250,7 +230,7 @@ $largeScr: 1600px;
     }
   }
 
-  @include flex(space-between, center, wrap, row)
+  @include displayFlex(space-between, center, wrap, row)
 }
 
 // Menu Content

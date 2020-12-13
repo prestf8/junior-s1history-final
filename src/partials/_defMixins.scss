@@ -1,0 +1,16 @@
+// Mixins 
+@mixin displayFlex($justify, $align, $w, $dir) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-flow: $w $dir;
+  }
+  
+  @mixin size($width, $height, $maxWidth: none, $maxHeight: none) {
+    width: $width;
+    height: $height;
+  }
+  
+  @mixin changeFont($font) {
+    font-family: $font, sans-serif;
+  }

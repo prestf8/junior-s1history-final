@@ -32,41 +32,6 @@ export default class Home extends Vue {
 // Padauk for Home Title
 @import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
 
-// Mixins 
-@mixin displayFlex($justify, $align, $w, $dir) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-  flex-flow: $w $dir;
-}
-
-@mixin size($width, $height, $maxWidth: none, $maxHeight: none) {
-  width: $width;
-  height: $height;
-}
-
-@mixin changeFont($font) {
-  font-family: $font, sans-serif;
-}
-
-// Responsive
-$smallScr: 550px;
-$mediumScr: 800px;
-$mediumTwoScr: 1000px;
-$largeScr: 1600px;
-
-@mixin responsive($type) {
-  @if $type == 'smallScr' {
-    @media only screen and (min-width: $smallScr) {
-      @content;
-    }
-  } @else if $type == 'mediumScr' {
-    @media only screen and (min-width: $mediumScr) {
-      @content;
-    }
-  }
-}
-
 
 * {
   margin:0;
@@ -155,16 +120,16 @@ $largeScr: 1600px;
 .home__title {
   text-transform: uppercase;
   margin-bottom: 3rem;
-  font-size: 2.8rem;
+  font-size: 3rem;
 
   @include changeFont('Padauk');
 
   @include responsive('mediumScr') {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   @include responsive('largeScr') {
-    font-size: 3.5rem;
+    font-size: 3.6rem;
   }
 }
 
