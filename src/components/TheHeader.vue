@@ -159,6 +159,7 @@ $vueGreen: #42b983;
   background-color: transparent;
   background-color: $headerBGColor;
   width: 100%;
+  min-width: 300px;
   height: 50px;
   color: white;
   position: fixed;

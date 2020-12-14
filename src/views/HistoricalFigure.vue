@@ -179,7 +179,7 @@ $main-content-bg: rgb(21, 21, 21);
 
 .historical-figure__main-content {
   background: white;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   border-radius: 10px;
   padding: 0.7rem;
@@ -201,16 +201,14 @@ $main-content-bg: rgb(21, 21, 21);
   @include responsive('mediumScr') {
     font-size: 2rem;
     margin-bottom: 2rem;
-
   }
 
   @include responsive('mediumTwoScr') {
     font-size: 2.3rem;
-  
   }
 
   @include responsive('largeScr') {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
   }
 }
 
