@@ -3,7 +3,7 @@ import Home from '../views/Home.vue'
 
 const routes: Array<RouteConfig> = [
     {
-      path: '/',
+      path: '/junior-s1history-final/',
       name: 'Home',
       component: Home 
     },
