@@ -8,5 +8,6 @@ module.exports = {
           `
         }
       }
-    }
+    },
+    publicPath: '/junior-s1history-final/'
   };
