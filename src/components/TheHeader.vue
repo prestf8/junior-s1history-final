@@ -38,7 +38,7 @@
       <div class="header__menu-header">
         <font-awesome-icon icon="times" @click="toggleMenu"/>
         <section class="header__logo-container header__logo-container--menu">
-          <router-link class="header__logo header__logo--menu" to="/" exact>
+          <router-link class="header__logo header__logo--menu" to="/junior-s1history-final/" exact>
             S1 History Final
           </router-link>
         </section>
@@ -47,17 +47,17 @@
       <nav class="header__content header__content--menu">
         <ul class="header__ul header__ul--menu">
           <li class="header__link-c header__link-c--menu">
-            <router-link to="/" exact>Home</router-link>
+            <router-link to="/junior-s1history-final/" exact>Home</router-link>
           </li>
           <li class="header__link-c header__link-c--menu">
-            <router-link to="/historical-figure" exact
+            <router-link to="/junior-s1history-final/historical-figure" exact
               >Historical Figure</router-link>
           </li>
           <li class="header__link-c header__link-c--menu">
-            <router-link to="/interview" exact>Interview</router-link>
+            <router-link to="/junior-s1history-final/interview" exact>Interview</router-link>
           </li>
           <li class="header__link-c header__link-c--menu">
-            <router-link to="/myself" exact>Myself</router-link>
+            <router-link to="/junior-s1history-final/myself" exact>Myself</router-link>
           </li>
         </ul>
       </nav>
@@ -65,7 +65,7 @@
 
     <!-- Header Logo Container !-->
     <section class="header__logo-container">
-      <router-link class="header__logo" to="/" exact>
+      <router-link class="header__logo" to="/junior-s1history-final/" exact>
         S1 History Final
       </router-link>
     </section>
@@ -74,18 +74,18 @@
     <nav class="header__content header__content--header">
       <ul class="header__ul header__ul--header">
         <li class="header__link-c header__link-c--header">
-          <router-link to="/" exact>Home</router-link>
+          <router-link to="/junior-s1history-final/" exact>Home</router-link>
         </li>
         <li class="header__link-c header__link-c--header">
-          <router-link to="/historical-figure" exact
+          <router-link to="/junior-s1history-final/historical-figure" exact
             >Historical Figure</router-link
           >
         </li>
         <li class="header__link-c header__link-c--header">
-          <router-link to="/interview" exact>Interview</router-link>
+          <router-link to="/junior-s1history-final/interview" exact>Interview</router-link>
         </li>
         <li class="header__link-c header__link-c--header">
-          <router-link to="/myself" exact>Myself</router-link>
+          <router-link to="/junior-s1history-final/myself" exact>Myself</router-link>
         </li>
       </ul>
     </nav>
