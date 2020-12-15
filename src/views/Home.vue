@@ -10,10 +10,10 @@
         </div>
         <h1 class="home__intro-title">What does it mean to be an American?</h1>
       </main>
-      <NavigationArrow></NavigationArrow>
+      <!-- <NavigationArrow></NavigationArrow> -->
     </section>
 
-    <section id="content-section" style="height: 2rem; background-color: black;"></section>
+    <!-- <section id="content-section" style="height: 2rem; background-color: black;"></section> -->
     <main class="home__main">
       <div class="home__main-container">
 

@@ -9,9 +9,9 @@
       </section>
 
       <!-- <a href="#content-section"><font-awesome-icon icon="angle-double-down"></font-awesome-icon></a> -->
-      <NavigationArrow></NavigationArrow>
+      <!-- <NavigationArrow></NavigationArrow> -->
     </section>
-    <section id="content-section" style="height:20px"></section>
+    <!-- <section id="content-section" style="height:20px"></section> -->
     
     <main class="historical-figure__main-content-container">
       <section class="historical-figure__main-content">
