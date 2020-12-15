@@ -10,10 +10,8 @@
         </div>
         <h1 class="home__intro-title">What does it mean to be an American?</h1>
       </main>
-      <!-- <NavigationArrow></NavigationArrow> -->
     </section>
 
-    <!-- <section id="content-section" style="height: 2rem; background-color: black;"></section> -->
     <main class="home__main">
       <div class="home__main-container">
 
@@ -85,10 +83,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import NavigationArrow from '../components/NavigationArrow.vue';
 @Component({
   components: {
-    NavigationArrow
   },
 })
 export default class Home extends Vue {
@@ -121,7 +117,6 @@ $title: #1f1f1f;
 }
 
 #home {
-  scroll-behavior: smooth; 
   padding-top: 50px;
 
   @include responsive('mediumScr') {

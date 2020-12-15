@@ -7,11 +7,7 @@
           <h2 class="historical-figure__name">Nikola Tesla</h2>
           <p class="historical-figure__role">Serbian-American Inventor and Engineer</p>
       </section>
-
-      <!-- <a href="#content-section"><font-awesome-icon icon="angle-double-down"></font-awesome-icon></a> -->
-      <!-- <NavigationArrow></NavigationArrow> -->
     </section>
-    <!-- <section id="content-section" style="height:20px"></section> -->
     
     <main class="historical-figure__main-content-container">
       <section class="historical-figure__main-content">
@@ -39,11 +35,9 @@
 <script lang="ts">
 
 import {Component, Vue} from 'vue-property-decorator'
-import NavigationArrow from '../components/NavigationArrow.vue';
 
 @Component({
   components: {
-    NavigationArrow
   }
 })
 export default class HistoricalFigure extends Vue {
@@ -70,29 +64,7 @@ $main-content-bg: rgb(21, 21, 21);
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
 
-}
-// Arrow 
-
-
-#content-section {
-  background-color: $main-content-bg;
-}
-
-@keyframes arrowAnimation {
-  0%, 100% {
-    bottom: 2rem;
-  }
-  50% {
-    bottom: 2.2rem;
-  }
-}
-
-
-
-// COntent
 
 #historical-figure {
   padding-top: 50px;

@@ -5,9 +5,7 @@
                 <h3 class="interview__intro-title">Interview</h3>
                 <h6 class="interview__intro-subtitle">w/ Kim Wong</h6>
             </div>
-            <!-- <NavigationArrow></NavigationArrow> -->
         </section>
-        <!-- <section id="content-section" style="height: 2rem"></section> -->
         <main class="interview__content-container">
             <div class="interview__content">
                 <section class="interview__content-title">
@@ -32,13 +30,7 @@
 
 import {Component, Vue} from 'vue-property-decorator'
 
-import NavigationArrow from '../components/NavigationArrow.vue'
-
-@Component({
-    components: {
-        NavigationArrow
-    }
-})
+@Component
 export default class Interview extends Vue {
 
     private questions = [
