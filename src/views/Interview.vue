@@ -5,7 +5,9 @@
                 <h3 class="interview__intro-title">Interview</h3>
                 <h6 class="interview__intro-subtitle">w/ Kim Wong</h6>
             </div>
+            <NavigationArrow></NavigationArrow>
         </section>
+        <section id="content-section" style="height: 2rem"></section>
         <main class="interview__content-container">
             <div class="interview__content">
                 <section class="interview__content-title">
@@ -30,7 +32,13 @@
 
 import {Component, Vue} from 'vue-property-decorator'
 
-@Component
+import NavigationArrow from '../components/NavigationArrow.vue'
+
+@Component({
+    components: {
+        NavigationArrow
+    }
+})
 export default class Interview extends Vue {
 
     private questions = [
@@ -112,7 +120,7 @@ export default class Interview extends Vue {
 
 $title: #1f1f1f;
 $light: #55636F;
-$main-content-bg: rgb(21, 21, 21);
+$main-content-bg: rgb(223, 223, 223);
 
 * {
     margin:0;
@@ -194,8 +202,9 @@ $main-content-bg: rgb(21, 21, 21);
 }
 
 .interview__content-container {
-  background: $main-content-bg;
-  padding: 1rem 0.6rem;
+    // background-color: white;
+    background: $main-content-bg;
+    padding: 1rem 0.6rem;
 
   @include responsive('smallScr') {
     padding: 2rem 1rem;
@@ -220,7 +229,7 @@ $main-content-bg: rgb(21, 21, 21);
 
 
 .interview__content {
-    background-color: $light;
+    // background-color: white;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0.7rem;
@@ -237,6 +246,8 @@ $main-content-bg: rgb(21, 21, 21);
 }
 
 .interview__title {
+
+    color: $title;
     @include changeFont('Source Sans Pro');
     font-size: 1.6rem;
 
@@ -268,15 +279,17 @@ $main-content-bg: rgb(21, 21, 21);
 }
 
 .interview__content-li {
-    border: 5px solid $title;
+    background-color: white;
+    border-bottom: 5px solid $title;
     border-radius: 10px;
     padding: 1rem;
     margin-bottom: 2rem;
     text-align: left;
-    background-color: darkgray;
+    box-shadow: 10px 10px 50px 3px rgb(102, 102, 102);
 
     @include responsive('mediumScr') {
         padding: 2rem;
+        margin-bottom: 4rem;
     }
 }
 

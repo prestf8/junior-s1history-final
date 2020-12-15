@@ -2,15 +2,18 @@
   <div id="home">
     <section class="home__intro">
       <main class="home__intro-content">
-        <h1 class="home__intro-title">What does it mean to be an American?</h1>
+        <div class="home__intro-black-layer"></div>
 
         <div class="home__intro-extra-info">
+          <p class="home__period">Period 3</p>
           <p class="home__name">Preston Fan</p>
-          <h4 class="home__period">Period 3</h4>
         </div>
+        <h1 class="home__intro-title">What does it mean to be an American?</h1>
       </main>
+      <NavigationArrow></NavigationArrow>
     </section>
 
+    <section id="content-section" style="height: 2rem; background-color: black;"></section>
     <main class="home__main">
       <div class="home__main-container">
 
@@ -82,9 +85,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
+import NavigationArrow from '../components/NavigationArrow.vue';
 @Component({
   components: {
+    NavigationArrow
   },
 })
 export default class Home extends Vue {
@@ -117,6 +121,7 @@ $title: #1f1f1f;
 }
 
 #home {
+  scroll-behavior: smooth; 
   padding-top: 50px;
 
   @include responsive('mediumScr') {
@@ -146,8 +151,8 @@ $title: #1f1f1f;
   top:0;
   left:0;
   max-width: 100%;  
-  z-index: -2;
-  // opacity: 0.9;
+  z-index: -3;
+  opacity: 0.9;
   // box-shadow: 0 0 70px 20px black inset;
 
   background-image: url('../assets/home-bg.jpg');
@@ -157,19 +162,20 @@ $title: #1f1f1f;
 }
 
 .home__intro-content {
-  text-align: left;
+  text-align: center;
   // background: red;
   max-width: 600px;
   padding: 1rem;
   margin-bottom: 1rem;
+  color: white;
 
   @include responsive('smallScr') {
-    text-align: center;
+    // text-align: center;
     margin-bottom: 3rem;
   }
   
   @include responsive('mediumScr') {
-    text-align: right;
+    // text-align: right;
     margin-bottom: 4rem;
   }
 
@@ -179,48 +185,45 @@ $title: #1f1f1f;
   }
 }
 
-
-// Black background for more Shadow
-// .home__black-background {
-//   position: absolute;
-//   top:0;
-//   left:0;
-//   margin-top: 50px;
-
-//   background-color: rgba(0,0,0,0.3);
-//   z-index: -1;
-
-//   @include size(100%, 100%);
-
-//   // Responsive 800px;
-//   @include responsive('mediumScr') {
-//     margin-top: 62px;
-//   }
-// }
+.home__intro-black-layer {
+  position: absolute;
+  top:0;
+  left:0;
+  
+  @include size(100%, 100%);
+  background: rgba(0,0,0,0.8);
+  z-index: -2;
+}
 
 .home__intro-title {
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-size: 2.3rem;
+  font-size: 3rem;
 
   @include changeFont('Padauk');
   @include responsive('smallScr') {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    font-size: 3.5rem;
   }
 
   @include responsive('mediumScr') {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
 
   @include responsive('largeScr') {
-    font-size: 3.6rem;
+    font-size: 5rem;
   }
+}
+
+.home__intro-extra-info {
+  padding: 1rem;
+
+  @include displayFlex(center, center, wrap, column);
 }
 
 .home__period {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+  text-transform: uppercase;
+  color: rgb(199, 199, 199);
   @include changeFont('Padauk');
 
   @include responsive('smallScr') {
@@ -234,8 +237,11 @@ $title: #1f1f1f;
 
 .home__name {
   font-size: 1.4rem;
-  margin-bottom: 0.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid white;
 }
+
+
 
 
 
@@ -264,10 +270,13 @@ $title: #1f1f1f;
   }
 }
 
+
 .home__main-question-container--third {
-  border-bottom: 5px solid gray;
+  border-bottom: 5px solid white;
   margin: 2rem;
+  padding: 2rem;
   // border-top: 5px solid $title;
+
 }
 
 .home__main-question--third:last-child {  
@@ -277,6 +286,7 @@ $title: #1f1f1f;
 .home__main-question-image {
   max-width: 100%;
   margin-bottom: 1rem;
+  padding: 1rem;
 
   @include responsive('mediumScr') {
     flex: 6;
@@ -295,21 +305,21 @@ $title: #1f1f1f;
 }
 
 .home__main-question {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 2rem;
   color: darkgray;
   @include changeFont('Montserrat');
   @include responsive('smallScr') {
-    // font-size: 1.1rem;
+    font-size: 1.1rem;
   }
 
   @include responsive('mediumScr') {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   @include responsive('largeScr') {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }
 

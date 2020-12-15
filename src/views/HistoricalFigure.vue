@@ -1,12 +1,18 @@
 <template>
   <div id="historical-figure">
     <section class="historical-figure__intro">
+      <div class="historical-figure__black-layer"></div>
       <section class="historical-figure__content">
           <!-- <h2 class="historical-figure__title">Historical Figure:</h2> -->
           <h2 class="historical-figure__name">Nikola Tesla</h2>
           <p class="historical-figure__role">Serbian-American Inventor and Engineer</p>
       </section>
+
+      <!-- <a href="#content-section"><font-awesome-icon icon="angle-double-down"></font-awesome-icon></a> -->
+      <NavigationArrow></NavigationArrow>
     </section>
+    <section id="content-section" style="height:20px"></section>
+    
     <main class="historical-figure__main-content-container">
       <section class="historical-figure__main-content">
         <h3 class="historical-figure__main-content-title">
@@ -33,8 +39,13 @@
 <script lang="ts">
 
 import {Component, Vue} from 'vue-property-decorator'
+import NavigationArrow from '../components/NavigationArrow.vue';
 
-@Component
+@Component({
+  components: {
+    NavigationArrow
+  }
+})
 export default class HistoricalFigure extends Vue {
   
   
@@ -58,6 +69,30 @@ $main-content-bg: rgb(21, 21, 21);
   padding:0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+
+}
+// Arrow 
+
+
+#content-section {
+  background-color: $main-content-bg;
+}
+
+@keyframes arrowAnimation {
+  0%, 100% {
+    bottom: 2rem;
+  }
+  50% {
+    bottom: 2.2rem;
+  }
+}
+
+
+
+// COntent
 
 #historical-figure {
   padding-top: 50px;
@@ -92,7 +127,7 @@ $main-content-bg: rgb(21, 21, 21);
   left:0;
   max-width: 100%;
   // margin-top: 50px;
-  z-index: -1;
+  z-index: -2;
 
   background-image: url('../assets/historical-figure-bg.jpg');
   background-size: cover;
@@ -104,6 +139,16 @@ $main-content-bg: rgb(21, 21, 21);
     // margin-top: 62px;
     // top: 100px;
   }
+}
+
+.historical-figure__black-layer {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+  
+  background-color: rgba(0,0,0,0.4);
+  @include size(100%, 100%);
 }
 
 .historical-figure__content {
@@ -125,15 +170,19 @@ $main-content-bg: rgb(21, 21, 21);
   }
 }
 .historical-figure__name {
-  font-size: 4rem;
+  font-size: 5rem;
   @include changeFont('Andika New Basic');
 
+  @include responsive('mediumScr') {
+    font-size: 5.5rem;
+  }
+
   @include responsive('medium2ndScr') {
-    font-size: 4.5rem;
+    font-size: 6rem;
   }
 
   @include responsive('largeScr') {
-    font-size: 5rem;
+    font-size: 7rem;
   }
 }
 
@@ -183,6 +232,7 @@ $main-content-bg: rgb(21, 21, 21);
   margin: 0 auto;
   border-radius: 10px;
   padding: 0.7rem;
+  box-shadow: 5px 5px 100px 20px rgb(38, 36, 36);
 
   @include responsive('smallScr') {
     padding: 2.2rem;
@@ -192,23 +242,23 @@ $main-content-bg: rgb(21, 21, 21);
 .historical-figure__main-content-title {  
   margin-bottom: 1rem;
   @include changeFont('Andika New Basic');
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 
   @include responsive('smallScr') {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   @include responsive('mediumScr') {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 2rem;
   }
 
   @include responsive('mediumTwoScr') {
-    font-size: 2.3rem;
+    font-size: 2.6rem;
   }
 
   @include responsive('largeScr') {
-    font-size: 2.6rem;
+    font-size: 3.2rem;
   }
 }
 

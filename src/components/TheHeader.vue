@@ -164,6 +164,10 @@ $vueGreen: #42b983;
   color: white;
   position: fixed;
   z-index: 2;
+  
+  box-shadow: 0 0 100px 40px black;
+  border-bottom: 1px solid rgb(197, 197, 197);
+
   @include displayFlex(space-between, center, nowrap, row);
 
   // Responsive 800px
